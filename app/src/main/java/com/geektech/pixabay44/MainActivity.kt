@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var page=1
     var imageAdapter= ImageAdapter(arrayListOf())
+    private lateinit var list: ArrayList<ImageModel>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +43,9 @@ class MainActivity : AppCompatActivity() {
                 response: Response<PixabayModel>
             ) {
                 response.body()?.hits?.let {
+                    list = it as ArrayList<ImageModel>
+                    imageAdapter.addlist(list)
+
                     imageAdapter= ImageAdapter(it as ArrayList<ImageModel>)
                     binding.recyclerView.adapter=imageAdapter
                 }

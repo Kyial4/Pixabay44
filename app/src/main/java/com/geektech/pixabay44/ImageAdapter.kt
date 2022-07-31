@@ -27,6 +27,11 @@ class ImageAdapter(private val list: ArrayList<ImageModel>) : RecyclerView.Adapt
         return list.size
     }
 
+    fun addlist(model: ArrayList<ImageModel>) {
+        list.addAll(model)
+        notifyDataSetChanged()
+    }
+
     inner class ImageViewHolder(val binding: ItemImagesBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(model: ImageModel) {
