@@ -29,9 +29,8 @@ class MainActivity : AppCompatActivity() {
         binding.requestBtn.setOnClickListener {
             doRequest(page)
         }
-        binding.activitymain.setOnRefreshListener {
+        binding.clickBtn.setOnClickListener {
             doRequest(page++)
-            binding.activitymain.isRefreshing=false
         }
     }
 
